@@ -1,20 +1,44 @@
+@font-face {
+    font-family: "exo-regular";
+    src:
+        url(fonts/exo-regular-webfont.woff) format(woff),
+        url(fonts/exo-regular-webfont.woff2) format(woff2);
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "exo-medium";
+    src:
+        url(fonts/exo-medium-webfont.woff) format(woff),
+        url(fonts/exo-medium-webfont.woff2) format(woff2);
+    font-weight: normal;
+    font-style: normal;
+}
+
 :root {
+    --text-colour: #353E43;
     --background-colour: #FFFFFF;
-    --shadow-colour: #ADDC54;
     --primary-colour: #CBF183;
+    --shadow-primary-colour: #ADDC54;
     --secondary-colour: #6A298E;
+    --shadow-secondary-colour: #9D69B9;
 }
 
 body {
-    font-family: 'Courier New', Courier, monospace;
+    font-family: "exo-regular", "Courier New", Courier, monospace;
+    letter-spacing: 0.1rem;
     font-size: 16px;
+    color: var(--text-colour);
     display: grid;
     grid-template-columns: minmax(min-content, 1.5fr) minmax(min-content, 4fr) minmax(min-content, 0.5fr) minmax(min-content, 2fr);
-    grid-template-rows: minmax(min-content, 1fr) minmax(min-content, 1fr) minmax(min-content, 5fr) minmax(min-content, 5fr);
+    grid-template-rows: minmax(min-content, auto) minmax(min-content, auto) minmax(min-content, 4fr) minmax(min-content, 4fr);
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3 {
     margin: 0;
+    font-family: "exo-medium";
+    letter-spacing: 0.15rem;
 }
 
 ul {
@@ -79,6 +103,12 @@ img {
 .user-name {
     flex-direction: column;
     line-height: 1rem;
+    font-size: 1rem;
+}
+
+.user-name h1 {
+    line-height: 2rem;
+    font-size: calc(1.6rem + 0.5vw);
 }
 
 .buttons {
@@ -99,12 +129,19 @@ button {
 
 input {
     font-size: 1.2rem;
-    width: 30vw;
+    width: 35vw;
     border: none;
     padding: 15px;
     margin-right: 1.5rem;
     border-radius: 30px;
     background-color: var(--primary-colour);
+    box-shadow: 1px 1px 1px 1px var(--shadow-primary-colour);
+}
+
+input:focus {
+    color: var(--background-colour);
+    background-color: var(--secondary-colour);
+    box-shadow: 1px 1px 1px 1px var(--shadow-secondary-colour);
 }
 
 form {
@@ -119,11 +156,18 @@ button[type="submit"] {
 
 button[type="button"] {
     font-size: 1.2rem;
-    padding: 10px 20px;
+    padding: 1rem 1.8rem;
     background-color: var(--secondary-colour);
     color: var(--background-colour);
     font-weight: bold;
     border-radius: 30px;
+    box-shadow: 1px 1px 1px 1px var(--shadow-secondary-colour);
+}
+
+button[type="button"]:hover {
+    background-color: var(--primary-colour);
+    color: var(--text-colour);
+    box-shadow: 1px 1px 1px 1px var(--shadow-primary-colour);
 }
 
 .sidebar {
@@ -136,7 +180,7 @@ button[type="button"] {
 }
 
 .sidebar h1 {
-    padding: 0 20px;
+    padding: 0 25px 25px;
 }
 
 .content {
@@ -172,22 +216,25 @@ button[type="button"] {
 .announcements,
 .trending {
     background-color: var(--background-colour);
-    box-shadow: 5px 5px 5px 5px var(--shadow-colour);
+    box-shadow: 5px 5px 5px 5px var(--shadow-primary-colour);
     border-radius: 10px;
     line-height: 1.5rem;
 }
 
 .cards {
-    display: flex;
-    flex-direction: column;
+    display: grid;
     padding: 30px;
     border-left: 10px solid var(--secondary-colour);
 }
 
+.cards h2 {
+    align-self: end;
+}
+
 .cards .icons {
-    align-self: flex-end;
+    justify-self: end;
+    align-self: end;
     font-size: 2rem;
-    margin-top: 30px;
 }
 
 .announcements {
@@ -205,6 +252,7 @@ button[type="button"] {
 .messages {
     border-bottom: 2px solid var(--primary-colour);
     margin: 15px;
+    font-size: 0.9rem;
 }
 
 .messages:last-child {
@@ -215,6 +263,7 @@ button[type="button"] {
     grid-column: 2;
     grid-row: 4;
     padding: 30px;
+    font-size: 1.1rem;
 }
 
 .trending-header {
