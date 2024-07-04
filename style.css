@@ -19,10 +19,10 @@
 :root {
     --text-colour: #353E43;
     --background-colour: #FFFFFF;
-    --primary-colour: #CBF183;
-    --shadow-primary-colour: #ADDC54;
-    --secondary-colour: #6A298E;
-    --shadow-secondary-colour: #9D69B9;
+    --primary-colour: #D5EFA4;
+    --shadow-primary-colour: #AACC6A;
+    --secondary-colour: #5C2E76;
+    --shadow-secondary-colour: #9D7CB0;
 }
 
 body {
